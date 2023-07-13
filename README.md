@@ -1,1 +1,0 @@
-# geopsik_stats_calculator.github.io
