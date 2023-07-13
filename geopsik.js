@@ -115,8 +115,7 @@ function dayCount(){
 
 function indicateValue(){
     document.getElementById('indicator').innerHTML = 
-    month.value.toString() + week.value.toString() + day.value.toString() + count 
-    + "<br>" + "1학년: " + freshman.number[count-1] + "<br>" + "2학년: " + sophomore.number[count-1] + "<br>" + "3학년: " + junior.number[count-1] + "<br>";
+    "1학년: " + freshman.number[count-1] + "<br>" + "2학년: " + sophomore.number[count-1] + "<br>" + "3학년: " + junior.number[count-1] + "<br>";
 }
 
 function inputData() {
