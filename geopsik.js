@@ -116,7 +116,7 @@ function dayCount(){
 function indicateValue(){
     document.getElementById('indicator').innerHTML = 
     month.value.toString() + week.value.toString() + day.value.toString() + count 
-    + "<br>" + "1ÇĞ³â: " + freshman.number[count-1] + "<br>" + "2ÇĞ³â: " + sophomore.number[count-1] + "<br>" + "3ÇĞ³â: " + junior.number[count-1] + "<br>";
+    + "<br>" + "1í•™ë…„: " + freshman.number[count-1] + "<br>" + "2í•™ë…„: " + sophomore.number[count-1] + "<br>" + "3í•™ë…„: " + junior.number[count-1] + "<br>";
 }
 
 function inputData() {
@@ -211,7 +211,7 @@ function mostPopularDay(arr){
     if(howMuch == 0){
         return NaN;
     } else{
-        return parseInt((when)/7) + 1 +"ÁÖÂ÷" + ((when)%7 + 1) + "ÀÏ";
+        return parseInt((when)/7) + 1 +"ì£¼ì°¨" + ((when)%7 + 1) + "ì¼";
     }
 }
 
@@ -229,22 +229,22 @@ function mostPopularDayTotal(){
     if(howMuch == 0){
         return NaN;
     } else{
-        return parseInt((when)/7) + 1 +"ÁÖÂ÷" + ((when)%7 + 1) + "ÀÏ";
+        return parseInt((when)/7) + 1 +"ì£¼ì°¨" + ((when)%7 + 1) + "ì¼";
     }
 }
 
 function indicateStats(){
     document.getElementById('statsIndicator').innerHTML = 
-    "<p>" + "#ÀÌ¹ø ´Ş ¹è½Ä¹ŞÀº Æò±Õ ÀÎ¿ø" + "<br>"
-    + "1ÇĞ³â: " + monthlyUser(freshman.number) +"<br>"
-    + "2ÇĞ³â: " + monthlyUser(sophomore.number) + "<br>"
-    + "3ÇĞ³â: " + monthlyUser(junior.number) + "<br>" 
-    + "Á¾ÇÕ: " + (monthlyUser(freshman.number)+monthlyUser(sophomore.number)+monthlyUser(junior.number))/3 + "</p>"
-    +"<p>" + "#ÀÌ¹ø ´Ş °¡Àå ¸¹ÀÌ ¹è½Ä¹ŞÀº ³¯" + "<br>"
-    + "1ÇĞ³â: " + mostPopularDay(freshman.number) +"<br>"
-    + "2ÇĞ³â: " + mostPopularDay(sophomore.number) + "<br>"
-    + "3ÇĞ³â: " + mostPopularDay(junior.number) + "<br>" 
-    + "Á¾ÇÕ: " + mostPopularDayTotal() + "</p>"
+    "<p>" + "#ì´ë²ˆ ë‹¬ ë°°ì‹ë°›ì€ í‰ê·  ì¸ì›" + "<br>"
+    + "1í•™ë…„: " + monthlyUser(freshman.number) +"<br>"
+    + "2í•™ë…„: " + monthlyUser(sophomore.number) + "<br>"
+    + "3í•™ë…„: " + monthlyUser(junior.number) + "<br>" 
+    + "ì¢…í•©: " + (monthlyUser(freshman.number)+monthlyUser(sophomore.number)+monthlyUser(junior.number))/3 + "</p>"
+    +"<p>" + "#ì´ë²ˆ ë‹¬ ê°€ì¥ ë§ì´ ë°°ì‹ë°›ì€ ë‚ " + "<br>"
+    + "1í•™ë…„: " + mostPopularDay(freshman.number) +"<br>"
+    + "2í•™ë…„: " + mostPopularDay(sophomore.number) + "<br>"
+    + "3í•™ë…„: " + mostPopularDay(junior.number) + "<br>" 
+    + "ì¢…í•©: " + mostPopularDayTotal() + "</p>"
     ;
 }
 
