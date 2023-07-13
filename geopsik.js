@@ -220,7 +220,7 @@ function mostPopularDayTotal(){
     let when = 0;
     while(a<35){
         if(freshman.number[(calMonth.value-1)*35+a]+sophomore.number[(calMonth.value-1)*35+a]+junior.number[(calMonth.value-1)*35+a] > howMuch){
-            howMuch = parseInt(freshman.number[(calMonth.value-1)*35+a]+sophomore.number[(calMonth.value-1)*35+a]+junior.number[(calMonth.value-1)*35+a]);
+            howMuch = parseInt(freshman.number[(calMonth.value-1)*35+a])+parseInt(sophomore.number[(calMonth.value-1)*35+a])+parseInt(junior.number[(calMonth.value-1)*35+a]);
             when = a;
         }
         a++;
