@@ -23,6 +23,7 @@ button {
 
 #valueGrid {
     display: flex;
+    max-width: 250px;
 }
 
 .buttonFlex {
