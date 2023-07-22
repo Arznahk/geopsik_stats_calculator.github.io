@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>geopsik</title>
     <link rel="stylesheet" href="style.css">
-    <script src="C:\Coding\Workspace\geopsik\geopsik.js"></script>
+    <script src="geopsik.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
 </head>
 
 <body>
-    <h1>±Þ½Ä ÀÎ¿ø Åë°è °è»ê±â</h1>
+    <h1>ê¸‰ì‹ ì¸ì› í†µê³„ ê³„ì‚°ê¸°</h1>
     <div id="grid">
         <div id="students">
-            <h2>ÇÐ»ý ¼ö ÀÔ·Â</h2>
+            <h2>í•™ìƒ ìˆ˜ ìž…ë ¥</h2>
             <p>
-                *ISO ±âÁØ, ¸Å¿ù 1ÀÏÀÌ ¿ù, È­, ¼ö, ¸ñ Áß ÇÏ³ª¶ó¸é ±× ÁÖ´Â ÇØ´ç ´ÞÀÇ Ã¹ ÁÖ ÀÔ´Ï´Ù<br>
-                ¹Ý´ë·Î ¸Å¿ù 1ÀÏÀÌ ±Ý, Åä, ÀÏ Áß ÇÏ³ª¶ó¸é ±× ÁÖ´Â Àú¹ø ´ÞÀÇ ¸¶Áö¸· ÁÖ ÀÔ´Ï´Ù.
+                *ISO ê¸°ì¤€, ë§¤ì›” 1ì¼ì´ ì›”, í™”, ìˆ˜, ëª© ì¤‘ í•˜ë‚˜ë¼ë©´ ê·¸ ì£¼ëŠ” í•´ë‹¹ ë‹¬ì˜ ì²« ì£¼ ìž…ë‹ˆë‹¤<br>
+                ë°˜ëŒ€ë¡œ ë§¤ì›” 1ì¼ì´ ê¸ˆ, í† , ì¼ ì¤‘ í•˜ë‚˜ë¼ë©´ ê·¸ ì£¼ëŠ” ì €ë²ˆ ë‹¬ì˜ ë§ˆì§€ë§‰ ì£¼ ìž…ë‹ˆë‹¤.
             </p>
             <div id="valueGrid">
                 <div class="buttonFlex">
@@ -28,7 +28,7 @@
                     </button>
                     <div>
                         <input type="text" name="month" class="date" id="month" value="1" placeholder="month(1~12)"
-                            onchange="dateChanged();">¿ù
+                            onchange="dateChanged();">ì›”
                     </div>
                     <button type="button" onclick="month.down();">
                         <span class="material-icons-round">
@@ -44,7 +44,7 @@
                     </button>
                     <div>
                         <input type="text" name="week" class="date" id="week" value="1" placeholder="week(1~5)"
-                            onchange="dateChanged();">ÁÖÂ÷
+                            onchange="dateChanged();">ì£¼ì°¨
                     </div>
                     <button type="button" onclick="week.down();">
                         <span class="material-icons-round">
@@ -60,7 +60,7 @@
                     </button>
                     <div>
                         <input type="text" name="day" class="date" id="day" value="1" placeholder="day(1~7)"
-                            onchange="dateChanged();">ÀÏ
+                            onchange="dateChanged();">ì¼
                     </div>
                     <button type="button" onclick="day.down();">
                         <span class="material-icons-round">
@@ -72,25 +72,25 @@
 
 
             <div>
-                1ÇÐ³â<input type="text" name="freshman" class="number" id="freshman" value="0" placeholder="freshman"
+                1í•™ë…„<input type="text" name="freshman" class="number" id="freshman" value="0" placeholder="freshman"
                     onchange="numberChanged();">
-                2ÇÐ³â<input type="text" name="sophomore" class="number" id="sophomore" value="0" placeholder="sophomore"
+                2í•™ë…„<input type="text" name="sophomore" class="number" id="sophomore" value="0" placeholder="sophomore"
                     onchange="numberChanged();">
-                3ÇÐ³â<input type="text" name="junior" class="number" id="junior" value="0" placeholder="junior"
+                3í•™ë…„<input type="text" name="junior" class="number" id="junior" value="0" placeholder="junior"
                     onchange="numberChanged();">
             </div>
 
             <input type="button" name="input" id="input" value="input" onclick="inputData();">
 
             <div id="indicator">
-                1ÇÐ³â: 0 <br>
-                2ÇÐ³â: 0 <br>
-                3ÇÐ³â: 0 <br>
+                1í•™ë…„: 0 <br>
+                2í•™ë…„: 0 <br>
+                3í•™ë…„: 0 <br>
             </div>
         </div>
 
         <div id="stats">
-            <h2>Åë°è</h2>
+            <h2>í†µê³„</h2>
             <div id="valueGrid">
                 <div class="buttonFlex">
                     <button type="button" onclick="calMonth.up();">
@@ -100,7 +100,7 @@
                     </button>
                     <div>
                         <input type="text" name="calMonth" class="date" id="calMonth" value="1" placeholder="month(1~12)"
-                        onchange="calDateChanged();">¿ù
+                        onchange="calDateChanged();">ì›”
                     </div>
                     <button type="button" onclick="calMonth.down();">
                         <span class="material-icons-round">
@@ -116,7 +116,7 @@
                     </button>
                     <div>
                         <input type="text" name="calWeek" class="date" id="calWeek" value="1" placeholder="week(1~5)"
-                        onchange="calDateChanged();">ÁÖÂ÷
+                        onchange="calDateChanged();">ì£¼ì°¨
                     </div>
                     <button type="button" onclick="calWeek.down();">
                         <span class="material-icons-round">
@@ -128,18 +128,18 @@
 
             <div id="statsIndicator">
                 <p>
-                    #ÀÌ¹ø ´Þ ¹è½Ä¹ÞÀº Æò±Õ ÀÎ¿ø <br>
-                    1ÇÐ³â: NaN <br>
-                    2ÇÐ³â: NaN <br>
-                    3ÇÐ³â: NaN <br>
-                    Á¾ÇÕ: NaN
+                    #ì´ë²ˆ ë‹¬ ë°°ì‹ë°›ì€ í‰ê·  ì¸ì› <br>
+                    1í•™ë…„: NaN <br>
+                    2í•™ë…„: NaN <br>
+                    3í•™ë…„: NaN <br>
+                    ì¢…í•©: NaN
                 </p>
                 <p>
-                    #ÀÌ¹ø ´Þ °¡Àå ¸¹ÀÌ ¹è½Ä¹ÞÀº ³¯ <br>
-                    1ÇÐ³â: NaN <br>
-                    2ÇÐ³â: NaN <br>
-                    3ÇÐ³â: NaN <br>
-                    Á¾ÇÕ: NaN
+                    #ì´ë²ˆ ë‹¬ ê°€ìž¥ ë§Žì´ ë°°ì‹ë°›ì€ ë‚  <br>
+                    1í•™ë…„: NaN <br>
+                    2í•™ë…„: NaN <br>
+                    3í•™ë…„: NaN <br>
+                    ì¢…í•©: NaN
                 </p>
             </div>
         </div>
