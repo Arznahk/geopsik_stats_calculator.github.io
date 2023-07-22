@@ -1,11 +1,11 @@
 // let storage = window.localStorage;
-// window.localStorage.setItem('') ÃßÈÄ ÀÌ¾î ÀÛ¼º
+// window.localStorage.setItem('') ì¶”í›„ ì´ì–´ ì‘ì„±
 
 /**
- * ¸ñÇ¥ ÅÂ±×¿¡ ÀÔ·ÂµÈ °ªÀÌ ÃÖ´ñ°ª, ÃÖ¼Ú°ªÀ» ¹ş¾î³ª°Å³ª ¼ıÀÚ°¡ ¾Æ´Ò °æ¿ì Á¤Á¤
- * @param {string} id ¸ñÇ¥ ÅÂ±×ÀÇ id°ª
- * @param {number} min ÃÖ¼Ú°ª
- * @param {number} max ÃÖ´ñ°ª
+ * ëª©í‘œ íƒœê·¸ì— ì…ë ¥ëœ ê°’ì´ ìµœëŒ“ê°’, ìµœì†Ÿê°’ì„ ë²—ì–´ë‚˜ê±°ë‚˜ ìˆ«ìê°€ ì•„ë‹ ê²½ìš° ì •ì •
+ * @param {string} id ëª©í‘œ íƒœê·¸ì˜ idê°’
+ * @param {number} min ìµœì†Ÿê°’
+ * @param {number} max ìµœëŒ“ê°’
  */
 function valueCheck(id, min, max){
     if(isNaN(valueToInt(id)) == true){
@@ -18,7 +18,7 @@ function valueCheck(id, min, max){
     
 }
 
-//ÇĞ³âº° ÀÎ¿ø ÀúÀå°ø°£
+//í•™ë…„ë³„ ì¸ì› ì €ì¥ê³µê°„
 let freshman = {
     number: [],
 };
@@ -29,21 +29,21 @@ let junior = {
     number: [],
 };
 
-//ÀÎ¿ø ÀúÀå°ø°£ Å©±â ÁöÁ¤
+//ì¸ì› ì €ì¥ê³µê°„ í¬ê¸° ì§€ì •
 freshman.number.length = 35*12;
 sophomore.number.length = 35*12;
 junior.number.length = 35*12;
 
-//ºó °ø°£À» 0À¸·Î ÃÊ±âÈ­
+//ë¹ˆ ê³µê°„ì„ 0ìœ¼ë¡œ ì´ˆê¸°í™”
 freshman.number.fill(0);
 sophomore.number.fill(0);
 junior.number.fill(0);
 
-//ÇØ´ç idÅÂ±×ÀÇ °ªÀ» Á¤¼ö·Î º¯È¯ÇØ Ãâ·Â
+//í•´ë‹¹ idíƒœê·¸ì˜ ê°’ì„ ì •ìˆ˜ë¡œ ë³€í™˜í•´ ì¶œë ¥
 /**
- * html ÅÂ±×ÀÇ value°ªÀ» Á¤¼ö·Î ¹İÈ¯
- * @param {string} id Å¸±ê htmlÅÂ±×ÀÇ id
- * @returns ¸ñÇ¥ ÅÂ±×ÀÇ value°ªÀ» Á¤¼öÈ­ÇÏ¿© ¹İÈ¯
+ * html íƒœê·¸ì˜ valueê°’ì„ ì •ìˆ˜ë¡œ ë°˜í™˜
+ * @param {string} id íƒ€ê¹ƒ htmlíƒœê·¸ì˜ id
+ * @returns ëª©í‘œ íƒœê·¸ì˜ valueê°’ì„ ì •ìˆ˜í™”í•˜ì—¬ ë°˜í™˜
  */
 function valueToInt(id){
     return parseInt(document.getElementById(id).value);
@@ -103,7 +103,7 @@ function dayCount(){
 
 function indicateValue(){
     document.getElementById('indicator').innerHTML = 
-    "1ÇĞ³â: " + freshman.number[count-1] + "<br>" + "2ÇĞ³â: " + sophomore.number[count-1] + "<br>" + "3ÇĞ³â: " + junior.number[count-1] + "<br>";
+    "1í•™ë…„: " + freshman.number[count-1] + "<br>" + "2í•™ë…„: " + sophomore.number[count-1] + "<br>" + "3í•™ë…„: " + junior.number[count-1] + "<br>";
 }
 
 function inputData() {
@@ -181,7 +181,7 @@ function mostPopularDay(arr){
     if(howMuch == 0){
         return NaN;
     } else{
-        return parseInt((when)/7) + 1 +"ÁÖÂ÷" + ((when)%7 + 1) + "ÀÏ";
+        return parseInt((when)/7) + 1 +"ì£¼ì°¨" + ((when)%7 + 1) + "ì¼";
     }
 }
 
@@ -199,22 +199,22 @@ function mostPopularDayTotal(){
     if(howMuch == 0){
         return NaN;
     } else{
-        return parseInt((when)/7) + 1 +"ÁÖÂ÷" + ((when)%7 + 1) + "ÀÏ";
+        return parseInt((when)/7) + 1 +"ì£¼ì°¨" + ((when)%7 + 1) + "ì¼";
     }
 }
 
 function indicateStats(){
     document.getElementById('statsIndicator').innerHTML = 
-    "<p>" + "#ÀÌ¹ø ´Ş ¹è½Ä¹ŞÀº Æò±Õ ÀÎ¿ø" + "<br>"
-    + "1ÇĞ³â: " + monthlyUser(freshman.number) +"<br>"
-    + "2ÇĞ³â: " + monthlyUser(sophomore.number) + "<br>"
-    + "3ÇĞ³â: " + monthlyUser(junior.number) + "<br>" 
-    + "Á¾ÇÕ: " + (monthlyUser(freshman.number)+monthlyUser(sophomore.number)+monthlyUser(junior.number))/3 + "</p>"
-    +"<p>" + "#ÀÌ¹ø ´Ş °¡Àå ¸¹ÀÌ ¹è½Ä¹ŞÀº ³¯" + "<br>"
-    + "1ÇĞ³â: " + mostPopularDay(freshman.number) +"<br>"
-    + "2ÇĞ³â: " + mostPopularDay(sophomore.number) + "<br>"
-    + "3ÇĞ³â: " + mostPopularDay(junior.number) + "<br>" 
-    + "Á¾ÇÕ: " + mostPopularDayTotal() + "</p>"
+    "<p>" + "#ì´ë²ˆ ë‹¬ ë°°ì‹ë°›ì€ í‰ê·  ì¸ì›" + "<br>"
+    + "1í•™ë…„: " + monthlyUser(freshman.number) +"<br>"
+    + "2í•™ë…„: " + monthlyUser(sophomore.number) + "<br>"
+    + "3í•™ë…„: " + monthlyUser(junior.number) + "<br>" 
+    + "ì¢…í•©: " + (monthlyUser(freshman.number)+monthlyUser(sophomore.number)+monthlyUser(junior.number))/3 + "</p>"
+    +"<p>" + "#ì´ë²ˆ ë‹¬ ê°€ì¥ ë§ì´ ë°°ì‹ë°›ì€ ë‚ " + "<br>"
+    + "1í•™ë…„: " + mostPopularDay(freshman.number) +"<br>"
+    + "2í•™ë…„: " + mostPopularDay(sophomore.number) + "<br>"
+    + "3í•™ë…„: " + mostPopularDay(junior.number) + "<br>" 
+    + "ì¢…í•©: " + mostPopularDayTotal() + "</p>"
     ;
 }
 
@@ -229,4 +229,4 @@ function calDateChanged(){
 }
 
 // indicateValue();
-// indicateStats(); html·Îµù µÈ ÀÌÈÄ¿¡ ½ÇÇàÇÒ ¹æ¹ı Ã£¾Æ ±¸ÇöÇÒ °Í
+// indicateStats(); htmlë¡œë”© ëœ ì´í›„ì— ì‹¤í–‰í•  ë°©ë²• ì°¾ì•„ êµ¬í˜„í•  ê²ƒ
