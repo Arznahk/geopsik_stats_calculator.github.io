@@ -1,50 +1,59 @@
+// let storage = window.localStorage;
+// window.localStorage.setItem('') ÃßÈÄ ÀÌ¾î ÀÛ¼º
+
+/**
+ * ¸ñÇ¥ ÅÂ±×¿¡ ÀÔ·ÂµÈ °ªÀÌ ÃÖ´ñ°ª, ÃÖ¼Ú°ªÀ» ¹ş¾î³ª°Å³ª ¼ıÀÚ°¡ ¾Æ´Ò °æ¿ì Á¤Á¤
+ * @param {string} id ¸ñÇ¥ ÅÂ±×ÀÇ id°ª
+ * @param {number} min ÃÖ¼Ú°ª
+ * @param {number} max ÃÖ´ñ°ª
+ */
+function valueCheck(id, min, max){
+    if(isNaN(valueToInt(id)) == true){
+        document.getElementById(id).value = min;
+    } else if (document.getElementById(id).value<min){
+        document.getElementById(id).value = min;
+    } else if(document.getElementById(id).value>max){
+        document.getElementById(id).value = max;
+    }
+    
+}
+
+//ÇĞ³âº° ÀÎ¿ø ÀúÀå°ø°£
 let freshman = {
     number: [],
-    check(){
-        if(typeof(valueToInt('freshman')) != "number" || document.getElementById('freshman').value == ""){
-            document.getElementById('freshman').value = 0
-        } else if (document.getElementById('freshman').value<0){
-            document.getElementById('freshman').value = 0;
-        }
-    }
 };
 let sophomore = {
     number: [],
-    check(){
-        if(typeof(valueToInt('sophomore')) != "number" || document.getElementById('sophomore').value == ""){
-            console.log(typeof(valueToInt('sophomore')));
-            document.getElementById('sophomore').value = 0
-        } else if (document.getElementById('sophomore').value<0){
-            document.getElementById('sophomore').value = 0;
-        }
-    }
 };
 let junior = {
     number: [],
-    check(){
-        if(typeof(valueToInt('junior')) != "number" || document.getElementById('junior').value == ""){
-            document.getElementById('junior').value = 0
-        } else if (document.getElementById('junior').value<0){
-            document.getElementById('junior').value = 0;
-        }
-    }
 };
+
+//ÀÎ¿ø ÀúÀå°ø°£ Å©±â ÁöÁ¤
 freshman.number.length = 35*12;
 sophomore.number.length = 35*12;
 junior.number.length = 35*12;
 
+//ºó °ø°£À» 0À¸·Î ÃÊ±âÈ­
 freshman.number.fill(0);
 sophomore.number.fill(0);
 junior.number.fill(0);
 
+//ÇØ´ç idÅÂ±×ÀÇ °ªÀ» Á¤¼ö·Î º¯È¯ÇØ Ãâ·Â
+/**
+ * html ÅÂ±×ÀÇ value°ªÀ» Á¤¼ö·Î ¹İÈ¯
+ * @param {string} id Å¸±ê htmlÅÂ±×ÀÇ id
+ * @returns ¸ñÇ¥ ÅÂ±×ÀÇ value°ªÀ» Á¤¼öÈ­ÇÏ¿© ¹İÈ¯
+ */
 function valueToInt(id){
     return parseInt(document.getElementById(id).value);
 }
 
+
 function numberChanged(){
-    freshman.check();
-    sophomore.check();
-    junior.check();
+    valueCheck('freshman', 0, Infinity);
+    valueCheck('sophomore', 0, Infinity);
+    valueCheck('junior', 0, Infinity);
     document.getElementById('freshman').value = valueToInt('freshman');
     document.getElementById('sophomore').value = valueToInt('sophomore');
     document.getElementById('junior').value = valueToInt('junior');
@@ -59,13 +68,6 @@ let month = {
     down(){
         document.getElementById('month').value--;
         dateChanged();
-    },
-    check(){
-        if(document.getElementById('month').value>12){
-            document.getElementById('month').value = 12;
-        } else if (document.getElementById('month').value<1){
-            document.getElementById('month').value = 1;
-        }
     }
 }
 
@@ -78,13 +80,6 @@ let week = {
     down(){
         document.getElementById('week').value--;
         dateChanged();
-    },
-    check(){
-        if(document.getElementById('week').value>5){
-            document.getElementById('week').value = 5;
-        } else if (document.getElementById('week').value<1){
-            document.getElementById('week').value = 1;
-        }
     }
 }
 
@@ -97,13 +92,6 @@ let day = {
     down(){
         document.getElementById('day').value--;
         dateChanged();
-    },
-    check(){
-        if(document.getElementById('day').value>7){
-            document.getElementById('day').value = 7;
-        } else if (document.getElementById('day').value<1){
-            document.getElementById('day').value = 1;
-        }
     }
 }
 
@@ -115,7 +103,7 @@ function dayCount(){
 
 function indicateValue(){
     document.getElementById('indicator').innerHTML = 
-    "1í•™ë…„: " + freshman.number[count-1] + "<br>" + "2í•™ë…„: " + sophomore.number[count-1] + "<br>" + "3í•™ë…„: " + junior.number[count-1] + "<br>";
+    "1ÇĞ³â: " + freshman.number[count-1] + "<br>" + "2ÇĞ³â: " + sophomore.number[count-1] + "<br>" + "3ÇĞ³â: " + junior.number[count-1] + "<br>";
 }
 
 function inputData() {
@@ -128,9 +116,9 @@ function inputData() {
 }
 
 function dateChanged(){
-    month.check();
-    week.check();
-    day.check();
+    valueCheck('month', 1, 12);
+    valueCheck('week', 1, 5);
+    valueCheck('day', 1, 7);
     document.getElementById('month').value = valueToInt('month');
     document.getElementById('week').value = valueToInt('week');
     document.getElementById('day').value = valueToInt('day');
@@ -150,13 +138,6 @@ let calMonth = {
     down(){
         document.getElementById('calMonth').value--;
         calDateChanged();
-    },
-    check(){
-        if(document.getElementById('calMonth').value>12){
-            document.getElementById('calMonth').value = 12;
-        } else if (document.getElementById('calMonth').value<1){
-            document.getElementById('calMonth').value = 1;
-        }
     }
 }
 
@@ -169,13 +150,6 @@ let calWeek = {
     down(){
         document.getElementById('calWeek').value--;
         calDateChanged();
-    },
-    check(){
-        if(document.getElementById('calWeek').value>5){
-            document.getElementById('calWeek').value = 5;
-        } else if (document.getElementById('calWeek').value<1){
-            document.getElementById('calWeek').value = 1;
-        }
     }
 }
 
@@ -190,9 +164,6 @@ function monthlyUser(arr){
         }
         a++;
     }
-    console.log(total);
-    console.log(a);
-    console.log(loss);
     return total/(35-loss);
 }
 
@@ -210,7 +181,7 @@ function mostPopularDay(arr){
     if(howMuch == 0){
         return NaN;
     } else{
-        return parseInt((when)/7) + 1 +"ì£¼ì°¨" + ((when)%7 + 1) + "ì¼";
+        return parseInt((when)/7) + 1 +"ÁÖÂ÷" + ((when)%7 + 1) + "ÀÏ";
     }
 }
 
@@ -228,31 +199,34 @@ function mostPopularDayTotal(){
     if(howMuch == 0){
         return NaN;
     } else{
-        return parseInt((when)/7) + 1 +"ì£¼ì°¨" + ((when)%7 + 1) + "ì¼";
+        return parseInt((when)/7) + 1 +"ÁÖÂ÷" + ((when)%7 + 1) + "ÀÏ";
     }
 }
 
 function indicateStats(){
     document.getElementById('statsIndicator').innerHTML = 
-    "<p>" + "#ì´ë²ˆ ë‹¬ ë°°ì‹ë°›ì€ í‰ê·  ì¸ì›" + "<br>"
-    + "1í•™ë…„: " + monthlyUser(freshman.number) +"<br>"
-    + "2í•™ë…„: " + monthlyUser(sophomore.number) + "<br>"
-    + "3í•™ë…„: " + monthlyUser(junior.number) + "<br>" 
-    + "ì¢…í•©: " + (monthlyUser(freshman.number)+monthlyUser(sophomore.number)+monthlyUser(junior.number))/3 + "</p>"
-    +"<p>" + "#ì´ë²ˆ ë‹¬ ê°€ì¥ ë§ì´ ë°°ì‹ë°›ì€ ë‚ " + "<br>"
-    + "1í•™ë…„: " + mostPopularDay(freshman.number) +"<br>"
-    + "2í•™ë…„: " + mostPopularDay(sophomore.number) + "<br>"
-    + "3í•™ë…„: " + mostPopularDay(junior.number) + "<br>" 
-    + "ì¢…í•©: " + mostPopularDayTotal() + "</p>"
+    "<p>" + "#ÀÌ¹ø ´Ş ¹è½Ä¹ŞÀº Æò±Õ ÀÎ¿ø" + "<br>"
+    + "1ÇĞ³â: " + monthlyUser(freshman.number) +"<br>"
+    + "2ÇĞ³â: " + monthlyUser(sophomore.number) + "<br>"
+    + "3ÇĞ³â: " + monthlyUser(junior.number) + "<br>" 
+    + "Á¾ÇÕ: " + (monthlyUser(freshman.number)+monthlyUser(sophomore.number)+monthlyUser(junior.number))/3 + "</p>"
+    +"<p>" + "#ÀÌ¹ø ´Ş °¡Àå ¸¹ÀÌ ¹è½Ä¹ŞÀº ³¯" + "<br>"
+    + "1ÇĞ³â: " + mostPopularDay(freshman.number) +"<br>"
+    + "2ÇĞ³â: " + mostPopularDay(sophomore.number) + "<br>"
+    + "3ÇĞ³â: " + mostPopularDay(junior.number) + "<br>" 
+    + "Á¾ÇÕ: " + mostPopularDayTotal() + "</p>"
     ;
 }
 
 function calDateChanged(){
-    calMonth.check();
-    calWeek.check();
+    valueCheck('calMonth', 1, 12);
+    valueCheck('calWeek', 1, 5);
     document.getElementById('calMonth').value = valueToInt('calMonth');
     document.getElementById('calWeek').value = valueToInt('calWeek');
     calMonth.value = valueToInt('calMonth');
     calWeek.value = valueToInt('calWeek');
     indicateStats();
 }
+
+// indicateValue();
+// indicateStats(); html·Îµù µÈ ÀÌÈÄ¿¡ ½ÇÇàÇÒ ¹æ¹ı Ã£¾Æ ±¸ÇöÇÒ °Í

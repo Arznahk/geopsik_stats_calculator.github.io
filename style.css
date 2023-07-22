@@ -1,14 +1,68 @@
-button{
+button {
     padding: 0px;
     border: 0px;
     height: 24px;
+    width: 24px;
     background-color: transparent;
 }
 
-.date{
+.date {
     width: 20px;
+    text-align: center;
 }
 
-.number{
-    width: 100px;
+.number {
+    width: 40px;
+    text-align: center;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#valueGrid {
+    display: flex;
+}
+
+.buttonFlex {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+input[type=text] {
+    border-width: 0px;
+    border-bottom-width: 1px;
+}
+
+#students {
+    position: relative;
+    border-right: 1px solid lightgrey;
+    padding-right: 10px;
+}
+
+#stats {
+    position: relative;
+    padding-left: 10px;
+}
+
+@media(max-width:570px) {
+    #grid {
+        display: block;
+    }
+
+    #students {
+        position: relative;
+        border-right: 0px;
+        border-bottom: 1px solid lightgrey;
+        padding-right: 0px;
+        padding-bottom: 10px;
+    }
+
+    #stats {
+        position: relative;
+        padding-left: 0px;
+    }
 }
